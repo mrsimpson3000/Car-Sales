@@ -13,7 +13,7 @@ const App = (props) => {
   };
 
   const buyItem = (item) => {
-    console.log("buy item");
+    // console.log("buy item");
     props.buyItem(item);
   };
 
