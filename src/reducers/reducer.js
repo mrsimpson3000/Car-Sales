@@ -34,6 +34,18 @@ export const reducer = (state = initialState, action) => {
           ),
         ], // filter method returns all the items that are not equal to the payload id
       };
+    case REMOVE_FEATURE:
+      return {
+        ...state,
+        additionalPrice: state.additionalPrice - action.payload.price, // subtracts the removed option price from the total
+        car: {
+          ...state.car,
+          features: state.car.features.filter(
+            (item) => item.id !== action.payload.id
+          ),
+        },
+        additionalFeatures: [...state.additionalFeatures, action.payload],
+      };
     default:
       return state;
   }
