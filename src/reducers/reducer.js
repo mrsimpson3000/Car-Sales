@@ -1,3 +1,5 @@
+import { REMOVE_FEATURE, BUY_ITEM } from "../actions/actions";
+
 export const initialState = {
   additionalPrice: 0,
   car: {
