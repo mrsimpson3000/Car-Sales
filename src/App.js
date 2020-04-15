@@ -7,7 +7,7 @@ import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
 // import { removeFeature, buyItem } from "./actions/actions";
 
-const App = (props) => {
+const App = () => {
   // const removeFeature = (item) => {
   //   props.removeFeature(item);
   // };
