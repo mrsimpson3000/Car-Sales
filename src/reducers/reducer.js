@@ -27,7 +27,12 @@ export const reducer = (state = initialState, action) => {
         car: {
           ...state.car,
           features: [...state.car.features, action.payload], // adds the selected feature to the added features
-        }, // still have to remove the option so it cannot be chosen again
+        },
+        additionalFeatures: [
+          ...state.additionalFeatures.filter(
+            (item) => item.id !== action.payload.id
+          ),
+        ], // filter method returns all the items that are not equal to the payload id
       };
     default:
       return state;
