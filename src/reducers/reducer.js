@@ -19,6 +19,9 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case BUY_ITEM:
+      console.log("Buy me");
+      return state;
     default:
       return state;
   }
