@@ -1,48 +1,51 @@
-import React from 'react';
+import React from "react";
+import { useSelector } from "react-redux";
 
-import Header from './components/Header';
-import AddedFeatures from './components/AddedFeatures';
-import AdditionalFeatures from './components/AdditionalFeatures';
-import Total from './components/Total';
+import Header from "./components/Header";
+import AddedFeatures from "./components/AddedFeatures";
+import AdditionalFeatures from "./components/AdditionalFeatures";
+import Total from "./components/Total";
+// import { removeFeature, buyItem } from "./actions/actions";
 
 const App = () => {
-  const state = {
-    additionalPrice: 0,
-    car: {
-      price: 26395,
-      name: '2019 Ford Mustang',
-      image:
-        'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
-      features: []
-    },
-    additionalFeatures: [
-      { id: 1, name: 'V-6 engine', price: 1500 },
-      { id: 2, name: 'Racing detail package', price: 1500 },
-      { id: 3, name: 'Premium sound system', price: 500 },
-      { id: 4, name: 'Rear spoiler', price: 250 }
-    ]
-  };
+  // const removeFeature = (item) => {
+  //   props.removeFeature(item);
+  // };
 
-  const removeFeature = item => {
-    // dispatch an action here to remove an item
-  };
+  // const buyItem = (item) => {
+  //   console.log("buy item");
+  //   props.buyItem(item);
+  // };
 
-  const buyItem = item => {
-    // dipsatch an action here to add an item
-  };
+  const data = useSelector((state) => state);
 
   return (
-    <div className="boxes">
-      <div className="box">
-        <Header car={state.car} />
-        <AddedFeatures car={state.car} />
+    <div className='boxes'>
+      <div className='box'>
+        <Header car={data.car} />
+        <AddedFeatures car={data.car} />
       </div>
-      <div className="box">
-        <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
-        <Total car={state.car} additionalPrice={state.additionalPrice} />
+      <div className='box'>
+        <AdditionalFeatures additionalFeatures={data.additionalFeatures} />
+        <Total car={data.car} additionalPrice={data.additionalPrice} />
       </div>
     </div>
   );
 };
+
+// const mapStateToProps = (state) => {
+//   return {
+//     car: state.car,
+//     additionalPrice: state.additionalPrice,
+//     additionalFeatures: state.additionalFeatures,
+//   };
+// };
+
+// const mapDispatchToProps = {
+//   removeFeature,
+//   buyItem,
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default App;
